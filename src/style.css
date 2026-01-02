@@ -1,0 +1,66 @@
+@import 'tailwindcss';
+
+/* カスタムスタイル - かわいいパステルテーマ */
+@layer base {
+  html {
+    font-family: 'Noto Sans JP', system-ui, sans-serif;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    @apply bg-gradient-to-br from-pink-50 via-purple-50 to-blue-50 text-slate-700 min-h-screen;
+  }
+}
+
+@layer components {
+  .drop-zone {
+    @apply border-3 border-dashed border-pink-300 rounded-3xl p-8 text-center cursor-pointer transition-all duration-200 bg-white/60 backdrop-blur-sm shadow-lg;
+  }
+
+  .drop-zone:hover,
+  .drop-zone.drag-over {
+    @apply border-pink-400 bg-pink-50/80 shadow-xl scale-[1.02];
+  }
+
+  .drop-zone.has-image {
+    @apply border-solid border-purple-400 bg-white/80;
+  }
+
+  .btn-primary {
+    @apply bg-gradient-to-r from-pink-400 to-purple-400 hover:from-pink-500 hover:to-purple-500 active:from-pink-600 active:to-purple-600 text-white font-bold py-3.5 px-6 rounded-2xl transition-all duration-150 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 shadow-lg hover:shadow-xl hover:scale-[1.02];
+  }
+
+  .btn-secondary {
+    @apply bg-white hover:bg-purple-50 active:bg-purple-100 text-purple-600 font-bold py-3.5 px-6 rounded-2xl transition-all duration-150 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 shadow-md hover:shadow-lg border-2 border-purple-200;
+  }
+}
+
+/* ローディングアニメーション */
+.loading-spinner {
+  @apply animate-spin h-5 w-5 border-3 border-white border-t-transparent rounded-full;
+}
+
+/* プレビュー画像 */
+.preview-image {
+  @apply max-w-full max-h-64 rounded-2xl shadow-lg object-contain;
+}
+
+/* ファイル情報 */
+.file-info {
+  @apply text-sm text-purple-500 mt-2 font-medium;
+}
+
+/* 警告メッセージ */
+.warning {
+  @apply bg-amber-50 border-2 border-amber-300 text-amber-700 px-4 py-3 rounded-2xl text-sm;
+}
+
+/* 成功メッセージ */
+.success {
+  @apply bg-green-50 border-2 border-green-300 text-green-700 px-4 py-3 rounded-2xl text-sm;
+}
+
+/* カスタムボーダー幅 */
+.border-3 {
+  border-width: 3px;
+}

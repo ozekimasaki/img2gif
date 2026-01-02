@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    
+    <!-- SEO メタタグ -->
+    <title>画像→GIF変換ツール | X（Twitter）高画質投稿用</title>
+    <meta name="description" content="画像をX（Twitter）投稿用の高画質2フレームGIFに変換。PNG・JPG・WebPに対応。スマホで簡単操作、そのままXに共有できます。完全無料・登録不要。" />
+    <meta name="keywords" content="画像 GIF 変換, Twitter 画質, X 高画質投稿, 画像変換ツール, GIF作成, PNG GIF変換" />
+    <meta name="author" content="img2gif" />
+    <meta name="robots" content="index, follow" />
+    
+    <!-- OGP -->
+    <meta property="og:title" content="画像→GIF変換ツール | X（Twitter）高画質投稿用" />
+    <meta property="og:description" content="画像をX（Twitter）投稿用の高画質GIFに変換。スマホで簡単操作、そのままXに共有できます。" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://img2gif.maymai.dev" />
+    <meta property="og:locale" content="ja_JP" />
+    <meta property="og:image" content="https://img2gif.maymai.dev/icons/icon.svg" />
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="画像→GIF変換ツール | X高画質投稿用" />
+    <meta name="twitter:description" content="画像をX投稿用の高画質GIFに変換。スマホで簡単操作。" />
+    
+    <!-- PWA -->
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <meta name="theme-color" content="#ec4899" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="img2gif" />
+    <link rel="apple-touch-icon" href="/icons/icon.svg" />
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <div id="app" class="min-h-screen flex flex-col">
+      <!-- ヘッダー -->
+      <header class="bg-white/80 backdrop-blur-sm border-b border-pink-100 px-4 py-4 shadow-sm">
+        <div class="max-w-lg mx-auto">
+          <h1 class="text-xl font-bold text-center">
+            <span class="text-pink-500">画像</span>→<span class="text-purple-500">GIF</span>変換
+          </h1>
+          <p class="text-xs text-purple-400 text-center mt-1">X（Twitter）高画質投稿用 ✨</p>
+        </div>
+      </header>
+
+      <!-- メインコンテンツ -->
+      <main class="flex-1 px-4 py-6">
+        <div class="max-w-lg mx-auto space-y-6">
+          
+          <!-- ドロップゾーン -->
+          <section>
+            <div id="dropZone" class="drop-zone min-h-48 flex flex-col items-center justify-center">
+              <div id="dropZoneContent">
+                <svg class="w-14 h-14 mx-auto text-pink-400 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                </svg>
+                <p class="text-slate-600 font-bold">画像をタップして選択 📷</p>
+                <p class="text-purple-400 text-sm mt-1">または ドラッグ&ドロップ</p>
+                <p class="text-pink-400 text-xs mt-3 bg-pink-50 px-3 py-1 rounded-full inline-block">JPG・PNG・WebP対応</p>
+              </div>
+              <div id="previewContainer" class="hidden w-full">
+                <img id="previewImage" class="preview-image mx-auto" alt="プレビュー" />
+                <p id="fileInfo" class="file-info text-center"></p>
+              </div>
+            </div>
+            <input type="file" id="fileInput" accept="image/jpeg,image/png,image/webp" class="hidden" />
+          </section>
+
+          <!-- オプション -->
+          <section id="optionsSection" class="hidden">
+            <details class="bg-white/80 backdrop-blur-sm rounded-2xl p-4 shadow-md border border-purple-100">
+              <summary class="cursor-pointer text-purple-600 font-medium flex items-center gap-2">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg>
+                ⚙️ 詳細設定
+              </summary>
+              <div class="mt-4 space-y-3">
+                <label class="flex items-center justify-between">
+                  <span class="text-slate-600 text-sm">ディザリング（色数制限の補正）</span>
+                  <input type="checkbox" id="ditheringToggle" checked class="w-5 h-5 rounded-lg bg-purple-100 border-purple-300 text-pink-500 focus:ring-pink-400" />
+                </label>
+              </div>
+            </details>
+          </section>
+
+          <!-- 警告・メッセージ -->
+          <div id="messageArea" class="hidden"></div>
+
+          <!-- アクションボタン -->
+          <section id="actionButtons" class="hidden space-y-3">
+            <button id="shareBtn" class="btn-primary w-full">
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+              </svg>
+              Xで共有
+            </button>
+            <button id="downloadBtn" class="btn-secondary w-full">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+              </svg>
+              ダウンロード
+            </button>
+            <button id="resetBtn" class="text-purple-400 hover:text-pink-500 text-sm w-full py-2 transition-colors font-medium">
+              🔄 別の画像を変換する
+            </button>
+          </section>
+
+          <!-- 変換中インジケーター -->
+          <section id="convertingIndicator" class="hidden text-center py-8">
+            <div class="loading-spinner mx-auto mb-3 border-pink-400 border-t-transparent"></div>
+            <p class="text-purple-500 font-medium">変換中... ✨</p>
+          </section>
+
+        </div>
+      </main>
+
+      <!-- フッター -->
+      <footer class="bg-white/80 backdrop-blur-sm border-t border-pink-100 px-4 py-4">
+        <div class="max-w-lg mx-auto text-center">
+          <p class="text-purple-400 text-xs">
+            🔒 画像はサーバーに送信されません（プライバシー保護）
+          </p>
+          <p class="text-purple-300 text-xs mt-1">
+            © 2026 <a href="https://x.com/mei_999_" target="_blank" rel="noopener noreferrer" class="hover:text-pink-500 transition-colors">Masaki Ozeki</a>
+          </p>
+        </div>
+      </footer>
+    </div>
+
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

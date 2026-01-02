@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e40af"/>
+      <stop offset="100%" style="stop-color:#3b82f6"/>
+    </linearGradient>
+  </defs>
+  <rect width="32" height="32" rx="6" fill="url(#bg)"/>
+  <rect x="4" y="8" width="10" height="8" rx="1" fill="#fff" opacity="0.9"/>
+  <path d="M16 12 L20 12" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+  <path d="M18 10 L20 12 L18 14" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <rect x="21" y="9" width="7" height="6" rx="1" fill="#22c55e"/>
+  <text x="24.5" y="14" font-family="Arial" font-size="4" font-weight="bold" fill="#fff" text-anchor="middle">GIF</text>
+</svg>
